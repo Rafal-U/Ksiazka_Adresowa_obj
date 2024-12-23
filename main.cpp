@@ -10,5 +10,6 @@ int main()
     //ksiazkaAdresowa.rejestracjaUzytkownika();
     //ksiazkaAdresowa.rejestracjaUzytkownika();
     //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
     return 0;
 }
