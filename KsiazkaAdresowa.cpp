@@ -12,10 +12,15 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 
 int KsiazkaAdresowa::logowanieUzytkownika()
 {
-    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownika();
+    uzytkownikMenedzer.logowanieUzytkownika();
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+}
+
+int KsiazkaAdresowa::wylogujUzytkownika()
+{
+    uzytkownikMenedzer.wylogujUzytkownika();
 }
