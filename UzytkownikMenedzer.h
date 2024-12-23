@@ -21,14 +21,15 @@ class UzytkownikMenedzer
 
 public:
     int pobierzIdZalogowanegoUzytkownika();
-    void ustawIdZalogowanegoUzytkownika();
+    void ustawIdZalogowanegoUzytkownika(int noweID);
 
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
-    int logowanieUzytkownika(vector <Uzytkownik> &uzytkownicy);
+    int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
+    int wylogujUzytkownika();
 };
 
 #endif
