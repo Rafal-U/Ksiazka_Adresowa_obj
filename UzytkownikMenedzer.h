@@ -28,6 +28,7 @@ public:
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika(vector <Uzytkownik> &uzytkownicy);
+    void zmianaHaslaZalogowanegoUzytkownika();
 };
 
 #endif
