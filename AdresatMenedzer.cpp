@@ -1,0 +1,2 @@
+#include "AdresatMenedzer.h"
+
