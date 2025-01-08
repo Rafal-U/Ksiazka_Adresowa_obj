@@ -4,15 +4,19 @@
 #include <vector>
 #include <fstream>
 #include <cstdlib>
-#include "Uzytkownik.h"
+#include "Adresat.h"
 #include "MetodyPomocnicze.h"
 using namespace std;
 
 class PlikZAdresatami
 {
     const string nazwaPlikuZAdresatami;
+    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
 
 public:
+    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) : nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI){};
+    void dopiszAdresataDoPliku(Adresat adresat);
+
 
 };
 

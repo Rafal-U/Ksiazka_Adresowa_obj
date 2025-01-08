@@ -24,3 +24,14 @@ int KsiazkaAdresowa::wylogujUzytkownika()
 {
     uzytkownikMenedzer.wylogujUzytkownika();
 }
+
+int KsiazkaAdresowa::dodajAdresata()
+{
+;
+}
+/*
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
+{
+    wyswietlWszystkichAdresatow();
+}*/
+

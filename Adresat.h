@@ -6,6 +6,7 @@ using namespace std;
 class Adresat
 {
     int idAdresata;
+    int idUzytkownika;
     string imie;
     string nazwisko;
     string numerTelefonu;
@@ -13,7 +14,8 @@ class Adresat
     string adres;
 
 public:
-    void ustawIDAdreesata(int noweID);
+    void ustawIDAdresata(int noweID);
+    void ustawIDUzytkownika(int noweIdUzytkownika);
     void ustawImie(string noweImie);
     void ustawNazwisko(string noweNazwisko);
     void ustawNumerTelefonu(string nowyNumerTel);
@@ -21,6 +23,7 @@ public:
     void ustawAdres(string nowyAdres);
 
     int pobierzIDAdresata();
+    int pobierzIDUzytkownika();
     string pobierzImie();
     string pobierzNazwisko();
     string pobierzNumerTelefonu();

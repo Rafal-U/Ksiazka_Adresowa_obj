@@ -1,9 +1,15 @@
 #include "Adresat.h"
 
-    void Adresat::ustawIDAdreesata(int noweID)
+    void Adresat::ustawIDAdresata(int noweID)
     {
         if (noweID >= 0)
         idAdresata = noweID;
+    }
+
+    void Adresat::ustawIDUzytkownika(int noweIdUzytkownika)
+    {
+        if (noweIdUzytkownika >= 0)
+        idUzytkownika = noweIdUzytkownika;
     }
 
     void Adresat::ustawImie(string noweImie)
@@ -34,6 +40,11 @@
     int Adresat::pobierzIDAdresata()
     {
         return idAdresata;
+    }
+
+    int Adresat::pobierzIDUzytkownika()
+    {
+        return idUzytkownika;
     }
 
     string Adresat::pobierzImie()
