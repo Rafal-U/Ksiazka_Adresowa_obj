@@ -20,16 +20,22 @@ class UzytkownikMenedzer
     PlikZUzytkownikami plikZUzytkownikami;
 
 public:
+    UzytkownikMenedzer(string NAZWA_PLIKU_Z_UZYTKOWNIKAMI) : plikZUzytkownikami(NAZWA_PLIKU_Z_UZYTKOWNIKAMI)
+    {
+        idZalogowanegoUzytkownika = 0;
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
+
     int pobierzIdZalogowanegoUzytkownika();
     void ustawIdZalogowanegoUzytkownika(int noweID);
 
-    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
-    int logowanieUzytkownika();
+    void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
+    bool czyUzytkownikJestZalogowany();
     int wylogujUzytkownika();
+    char wybierzOpcjeZMenuUzytkownika();
 };
 
 #endif
