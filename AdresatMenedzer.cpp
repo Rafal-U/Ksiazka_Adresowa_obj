@@ -1,16 +1,6 @@
 #include "AdresatMenedzer.h"
 
-void AdresatMenedzer::ustawIdOstatniegoAdresata(int noweIdOstatniegoAdresata)
-{
-    if (idOstatniegoAdresata >= 0)
-        idOstatniegoAdresata = noweIdOstatniegoAdresata;
-}
-int AdresatMenedzer::pobierzIdOstatniegoAdresata()
-{
-    return idOstatniegoAdresata;
-}
-
-int AdresatMenedzer::dodajAdresata()
+void AdresatMenedzer::dodajAdresata()
 {
     Adresat adresat;
 
@@ -18,17 +8,20 @@ int AdresatMenedzer::dodajAdresata()
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
     adresat = podajDaneNowegoAdresata();
     adresaci.push_back(adresat);
-    //dopiszAdresataDoPliku(adresat);
-
-    return ++idOstatniegoAdresata;
+    if (plikZAdresatami.dopiszAdresataDoPliku(adresat))
+    {
+        cout << "Nowy adresat zostal pomyslnie dodany do pliku." << endl;
+    }
+    else {cout << "Blad! Nie udalo sie dodac adresata do pliku." << endl;}
+    system("pause");
 }
 
 Adresat AdresatMenedzer::podajDaneNowegoAdresata()
 {
     Adresat adresat;
 
-    adresat.ustawIDAdresata(++idOstatniegoAdresata);
-    adresat.ustawIDUzytkownika(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    adresat.ustawIDAdresata(plikZAdresatami.pobierzIdOstatniegoAdresata()+1);
+    adresat.ustawIDUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze::wczytajLinie());

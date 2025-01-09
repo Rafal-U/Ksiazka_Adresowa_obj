@@ -13,6 +13,7 @@ public:
     static char wczytajZnak();
     static int wczytajLiczbeCalkowita();
     static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    static int konwersjaStringNaInt(string liczba);
 };
 
 
