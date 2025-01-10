@@ -51,13 +51,13 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
     do
     {
         cout << "Podaj login: " << endl;
-        cin >> login;
+        cin >> login; cin.sync();
         uzytkownik.ustawLogin(login);
     }
     while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
 
     cout << "Podaj haslo: " << endl;
-    cin >> haslo;
+    cin >> haslo; cin.sync();
     uzytkownik.ustawHaslo(haslo);
 
     return uzytkownik;
@@ -141,7 +141,7 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
     }
 }
 
-int UzytkownikMenedzer::wylogujUzytkownika()
+void UzytkownikMenedzer::wylogujUzytkownika()
 {
     ustawIdZalogowanegoUzytkownika(0);
 }

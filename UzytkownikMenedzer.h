@@ -34,7 +34,7 @@ public:
     void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     bool czyUzytkownikJestZalogowany();
-    int wylogujUzytkownika();
+    void wylogujUzytkownika();
     char wybierzOpcjeZMenuUzytkownika();
 };
 
