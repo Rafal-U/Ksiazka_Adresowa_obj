@@ -25,12 +25,8 @@ public:
      };
 
     void rejestracjaUzytkownika();
-    void wypiszWszystkichUzytkownikow();
+    void wypiszWszystkichUzytkownikow(); //opcja dodatkowa do usuniecia
     void logowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika();
-    int wylogujUzytkownika();
-    void dodajAdresata();
-    void wyswietlWszystkichAdresatow();
     char wybierzOpcjeZMenuGlownego();
     void zamknijProgram();
     void zarzadzajAdresatami();
