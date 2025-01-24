@@ -19,6 +19,7 @@ class PlikZAdresatami
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    void uaktualnijPlikiZAdresatami();
 
 public:
     PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
@@ -30,7 +31,7 @@ public:
     int pobierzIdOstatniegoAdresata();
     bool dopiszAdresataDoPliku(Adresat adresat);
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-
+    void operacjeNaPlikachPodczasEdytowaniaAdresata(vector <Adresat> &adresaci, int idAdresataZmienionegoint, int idZalogowanegoUzytkownika);
 
 
 };
