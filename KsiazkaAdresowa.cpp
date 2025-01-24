@@ -62,6 +62,8 @@ void KsiazkaAdresowa::zarzadzajAdresatami()
                 adresatMenedzer -> dodajAdresata(); break;
             case '4':
                 adresatMenedzer -> wyswietlWszystkichAdresatow(); break;
+            case '6':
+                adresatMenedzer -> edytujAdresata(); break;
             case '7':
                 uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika(); break;
             case '8':

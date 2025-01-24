@@ -162,3 +162,48 @@ bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy)
     else
         return false;
 }
+
+
+void PlikZAdresatami::operacjeNaPlikachPodczasEdytowaniaAdresata(vector <Adresat> &adresaci, int idAdresataZmienionego, int idZalogowanegoUzytkownika)
+{
+    fstream plik, plikTymczasowy;
+    int numerLinii = 1, dlugoscLinii = 0;
+    string linia = "";
+    plikTymczasowy.open("Adresaci_Tymczasowi.txt", ios::out);
+    plik.open("Adresaci.txt", ios::in);
+    if (plik.good() && plikTymczasowy.good())
+    {
+        while(getline(plik, linia))
+        {
+            dlugoscLinii = linia.length();
+            if (idAdresataZmienionego != stoi(linia) && dlugoscLinii != 0)
+            {
+                plikTymczasowy << linia << endl;
+                numerLinii++;
+            }
+            else
+            {
+                for (size_t i = 0; i < adresaci.size(); i++)
+                {
+                    if (idAdresataZmienionego == adresaci[i].pobierzIDAdresata())
+                    {
+                        plikTymczasowy << adresaci[i].pobierzIDAdresata() << '|' << idZalogowanegoUzytkownika << '|'
+                        << adresaci[i].pobierzImie() << '|' << adresaci[i].pobierzNazwisko() << '|'
+                        << adresaci[i].pobierzNumerTelefonu() << '|' << adresaci[i].pobierzEmail() << '|'
+                        << adresaci[i].pobierzAdres() << '|' << endl;
+                    }
+                }
+            }
+        }
+    }
+    plikTymczasowy.close();
+    plik.close();
+    uaktualnijPlikiZAdresatami();
+}
+
+
+void PlikZAdresatami::uaktualnijPlikiZAdresatami()
+{
+    remove("Adresaci.txt");
+    rename("Adresaci_Tymczasowi.txt", "Adresaci.txt");
+}
