@@ -50,7 +50,6 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     if (plikTekstowy.good() == true)
     {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
-
         if (czyPlikJestPusty(plikTekstowy) == true)
         {
             plikTekstowy << liniaZDanymiAdresata;
@@ -206,4 +205,28 @@ void PlikZAdresatami::uaktualnijPlikiZAdresatami()
 {
     remove("Adresaci.txt");
     rename("Adresaci_Tymczasowi.txt", "Adresaci.txt");
+}
+
+void PlikZAdresatami::operacjeNaPlikachPodczasUsuwaniaAdresata(vector <Adresat> &adresaci, int aktualnyUzytkownik, int idAdresataUsunietego)
+{
+    fstream plik, plikTymczasowy;
+    int numerLinii = 1, dlugoscLinii = 0;
+    string linia = "";
+    plikTymczasowy.open("Adresaci_Tymczasowi.txt", ios::out);
+    plik.open("Adresaci.txt", ios::in);
+    if (plik.good() && plikTymczasowy.good())
+    {
+        while(getline(plik, linia))
+        {
+            dlugoscLinii = linia.length();
+            if (idAdresataUsunietego != stoi(linia) && dlugoscLinii != 0)
+            {
+                plikTymczasowy << linia << endl;
+                numerLinii++;
+            }
+        }
+    }
+    plikTymczasowy.close();
+    plik.close();
+    uaktualnijPlikiZAdresatami();
 }

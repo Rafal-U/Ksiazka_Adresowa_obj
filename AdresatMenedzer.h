@@ -32,6 +32,7 @@ public:
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
     void edytujAdresata();
+    void usunAdresata();
 
 };
 

@@ -163,3 +163,48 @@ char AdresatMenedzer::wybierzOpcjeZMenuEdycja()
     return wybor;
 }
 
+void AdresatMenedzer::usunAdresata()
+{
+    int identyfikator = 1;
+    char potwierdzenie;
+    bool znalezionoID = false;
+
+    while(identyfikator != 0)
+    {
+        system("cls");
+        cout << "Wprowadz numer ID osoby, ktora chcesz usunac lub wcisnij 0, aby wrocic do menu glownego. Zatwierdz klawiszem Enter." << endl;
+        identyfikator = podajIdWybranegoAdresata();
+        if (identyfikator == 0) {;}
+        for (vector <Adresat> :: iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
+        {
+            if (itr -> pobierzIDAdresata() == identyfikator)
+            {
+                znalezionoID = true;
+                cout << "Czy jestes pewien, ze chcesz usunac adresata?" << endl;
+                cout << "Aby potwierdzic wcisnij t." << endl << "Aby anulowac i wybrac ponownie wcisnij inny dowolny znak" << endl;
+                potwierdzenie = MetodyPomocnicze::wczytajZnak();
+                if (potwierdzenie == 't')
+                {
+                    adresaci.erase(itr);
+                    system("cls");
+                    cout << "Usunieto adresata. Nastapi przekierowanie do menu glownego." << endl;
+                    plikZAdresatami.operacjeNaPlikachPodczasUsuwaniaAdresata(adresaci, ID_ZALOGOWANEGO_UZYTKOWNIKA, identyfikator);
+                    Sleep(2000); identyfikator = 0;
+                    if (itr == adresaci.end())
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+        if (!znalezionoID)
+        {
+            if (identyfikator != 0)
+            {
+                system("cls");
+                cout << "Zaden adresat nie ma takiego ID. Wybierz ponownie." << endl;
+                Sleep(2000);
+            }
+        }
+    }
+}
