@@ -33,7 +33,7 @@ public:
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void operacjeNaPlikachPodczasEdytowaniaAdresata(vector <Adresat> &adresaci, int idAdresataZmienionego, int idZalogowanegoUzytkownika);
     void operacjeNaPlikachPodczasUsuwaniaAdresata(vector <Adresat> &adresaci, int aktualnyUzytkownik, int idAdresataUsunietego);
-
+    int pobierzZPlikuIdOstatniegoAdresata();
 };
 
 #endif

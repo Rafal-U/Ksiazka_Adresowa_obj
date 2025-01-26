@@ -60,6 +60,10 @@ void KsiazkaAdresowa::zarzadzajAdresatami()
             {
             case '1':
                 adresatMenedzer -> dodajAdresata(); break;
+            case '2':
+                adresatMenedzer -> wyszukajAdresatowPoImieniu(); break;
+            case '3':
+                adresatMenedzer -> wyszukajAdresatowPoNazwisku(); break;
             case '4':
                 adresatMenedzer -> wyswietlWszystkichAdresatow(); break;
             case '5':
