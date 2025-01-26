@@ -167,7 +167,7 @@ void PlikZAdresatami::operacjeNaPlikachPodczasEdytowaniaAdresata(vector <Adresat
 {
     fstream plik, plikTymczasowy;
     int numerLinii = 1, dlugoscLinii = 0;
-    string linia = "";
+    string linia = "", liniaEdytowanegoAdresata = "";
     plikTymczasowy.open("Adresaci_Tymczasowi.txt", ios::out);
     plik.open("Adresaci.txt", ios::in);
     if (plik.good() && plikTymczasowy.good())
@@ -175,9 +175,16 @@ void PlikZAdresatami::operacjeNaPlikachPodczasEdytowaniaAdresata(vector <Adresat
         while(getline(plik, linia))
         {
             dlugoscLinii = linia.length();
-            if (idAdresataZmienionego != stoi(linia) && dlugoscLinii != 0)
+            if (idAdresataZmienionego != pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(linia) && dlugoscLinii != 0)
             {
-                plikTymczasowy << linia << endl;
+                if (numerLinii == 1)
+                {
+                    plikTymczasowy << linia;
+                }
+                else
+                {
+                    plikTymczasowy << endl << linia;
+                }
                 numerLinii++;
             }
             else
@@ -186,10 +193,16 @@ void PlikZAdresatami::operacjeNaPlikachPodczasEdytowaniaAdresata(vector <Adresat
                 {
                     if (idAdresataZmienionego == adresaci[i].pobierzIDAdresata())
                     {
-                        plikTymczasowy << adresaci[i].pobierzIDAdresata() << '|' << idZalogowanegoUzytkownika << '|'
-                        << adresaci[i].pobierzImie() << '|' << adresaci[i].pobierzNazwisko() << '|'
-                        << adresaci[i].pobierzNumerTelefonu() << '|' << adresaci[i].pobierzEmail() << '|'
-                        << adresaci[i].pobierzAdres() << '|' << endl;
+                        liniaEdytowanegoAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci[i]);
+                        if (numerLinii == 1)
+                        {
+                            plikTymczasowy << liniaEdytowanegoAdresata;
+                        }
+                        else
+                        {
+                            plikTymczasowy << endl << liniaEdytowanegoAdresata;
+                        }
+                        numerLinii++;
                     }
                 }
             }
@@ -219,9 +232,16 @@ void PlikZAdresatami::operacjeNaPlikachPodczasUsuwaniaAdresata(vector <Adresat> 
         while(getline(plik, linia))
         {
             dlugoscLinii = linia.length();
-            if (idAdresataUsunietego != stoi(linia) && dlugoscLinii != 0)
+            if (idAdresataUsunietego != pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(linia) && dlugoscLinii != 0)
             {
-                plikTymczasowy << linia << endl;
+                if (numerLinii == 1)
+                {
+                    plikTymczasowy << linia;
+                }
+                else
+                {
+                    plikTymczasowy << endl << linia;
+                }
                 numerLinii++;
             }
         }
@@ -229,4 +249,33 @@ void PlikZAdresatami::operacjeNaPlikachPodczasUsuwaniaAdresata(vector <Adresat> 
     plikTymczasowy.close();
     plik.close();
     uaktualnijPlikiZAdresatami();
+    if (idAdresataUsunietego == idOstatniegoAdresata)
+    {
+        idOstatniegoAdresata = pobierzZPlikuIdOstatniegoAdresata();
+    }
+}
+
+
+int PlikZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
+{
+    int ostatnieID = 0;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    string daneOstaniegoAdresataWPliku = "";
+    fstream plikTekstowy;
+    plikTekstowy.open("Adresaci.txt", ios::in);
+
+    if (plikTekstowy.good() == true)
+    {
+        while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {}
+            daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
+            plikTekstowy.close();
+    }
+    else
+        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
+
+    if (daneOstaniegoAdresataWPliku != "")
+    {
+        ostatnieID = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+    }
+    return ostatnieID;
 }
