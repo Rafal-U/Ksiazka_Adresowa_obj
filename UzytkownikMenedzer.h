@@ -30,7 +30,6 @@ public:
     void ustawIdZalogowanegoUzytkownika(int noweID);
 
     void rejestracjaUzytkownika();
-    void wypiszWszystkichUzytkownikow();
     void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     bool czyUzytkownikJestZalogowany();

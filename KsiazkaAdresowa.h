@@ -25,7 +25,6 @@ public:
      };
 
     void rejestracjaUzytkownika();
-    void wypiszWszystkichUzytkownikow(); //opcja dodatkowa do usuniecia
     void logowanieUzytkownika();
     char wybierzOpcjeZMenuGlownego();
     void zamknijProgram();
