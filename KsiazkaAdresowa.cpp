@@ -53,17 +53,17 @@ void KsiazkaAdresowa::zarzadzajAdresatami()
             switch(wybranaOpcja)
             {
             case '1':
-                adresatMenedzer -> dodajAdresata(); break;
+                adresatMenedzer ->dodajAdresata(); break;
             case '2':
-                adresatMenedzer -> wyszukajAdresatowPoImieniu(); break;
+                adresatMenedzer ->wyszukajAdresatowPoImieniu(); break;
             case '3':
-                adresatMenedzer -> wyszukajAdresatowPoNazwisku(); break;
+                adresatMenedzer ->wyszukajAdresatowPoNazwisku(); break;
             case '4':
-                adresatMenedzer -> wyswietlWszystkichAdresatow(); break;
+                adresatMenedzer ->wyswietlWszystkichAdresatow(); break;
             case '5':
-                adresatMenedzer -> usunAdresata(); break;
+                adresatMenedzer ->usunAdresata(); break;
             case '6':
-                adresatMenedzer -> edytujAdresata(); break;
+                adresatMenedzer ->edytujAdresata(); break;
             case '7':
                 uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika(); break;
             case '8':

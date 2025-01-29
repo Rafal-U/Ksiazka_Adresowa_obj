@@ -154,11 +154,13 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
 }
 
 
-void PlikZAdresatami::operacjeNaPlikachPodczasEdytowaniaAdresata(vector <Adresat> &adresaci, int idAdresataZmienionego, int idZalogowanegoUzytkownika)
+void PlikZAdresatami::operacjeNaPlikachPodczasEdytowaniaAdresata(Adresat edytowanyAdresat)
 {
     fstream plik, plikTymczasowy;
-    int numerLinii = 1, dlugoscLinii = 0;
+    int numerLinii = 1, dlugoscLinii = 0, idAdresataZmienionego = 0;
     string linia = "", liniaEdytowanegoAdresata = "";
+
+    idAdresataZmienionego = edytowanyAdresat.pobierzIDAdresata();
     plikTymczasowy.open("Adresaci_Tymczasowi.txt", ios::out);
     plik.open("Adresaci.txt", ios::in);
     if (plik.good() && plikTymczasowy.good())
@@ -180,22 +182,16 @@ void PlikZAdresatami::operacjeNaPlikachPodczasEdytowaniaAdresata(vector <Adresat
             }
             else
             {
-                for (size_t i = 0; i < adresaci.size(); i++)
+                liniaEdytowanegoAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(edytowanyAdresat);
+                if (numerLinii == 1)
                 {
-                    if (idAdresataZmienionego == adresaci[i].pobierzIDAdresata())
-                    {
-                        liniaEdytowanegoAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresaci[i]);
-                        if (numerLinii == 1)
-                        {
-                            plikTymczasowy << liniaEdytowanegoAdresata;
-                        }
-                        else
-                        {
-                            plikTymczasowy << endl << liniaEdytowanegoAdresata;
-                        }
-                        numerLinii++;
-                    }
+                    plikTymczasowy << liniaEdytowanegoAdresata;
                 }
+                else
+                {
+                    plikTymczasowy << endl << liniaEdytowanegoAdresata;
+                }
+                numerLinii++;
             }
         }
     }
@@ -211,7 +207,7 @@ void PlikZAdresatami::uaktualnijPlikiZAdresatami()
     rename("Adresaci_Tymczasowi.txt", "Adresaci.txt");
 }
 
-void PlikZAdresatami::operacjeNaPlikachPodczasUsuwaniaAdresata(vector <Adresat> &adresaci, int aktualnyUzytkownik, int idAdresataUsunietego)
+void PlikZAdresatami::operacjeNaPlikachPodczasUsuwaniaAdresata(int idAdresataUsunietego)
 {
     fstream plik, plikTymczasowy;
     int numerLinii = 1, dlugoscLinii = 0;
