@@ -101,32 +101,32 @@ void AdresatMenedzer::edytujAdresata()
                 adresaci[i].ustawImie(MetodyPomocnicze::wczytajLinie());
                 adresaci[i].ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresaci[i].pobierzImie()));
                 adresat = adresaci[i];
-                plikZAdresatami.operacjeNaPlikachPodczasEdytowaniaAdresata(adresat);
+                plikZAdresatami.uporzadkujPlikiPodczasEdytowaniaAdresata(adresat);
                 break;
             case '2':
                 cout << "Podaj nowe nazwisko: ";
                 adresaci[i].ustawNazwisko(MetodyPomocnicze::wczytajLinie());
                 adresaci[i].ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresaci[i].pobierzNazwisko()));
                 adresat = adresaci[i];
-                plikZAdresatami.operacjeNaPlikachPodczasEdytowaniaAdresata(adresat);
+                plikZAdresatami.uporzadkujPlikiPodczasEdytowaniaAdresata(adresat);
                 break;
             case '3':
                 cout << "Podaj nowy numer telefonu: ";
                 adresaci[i].ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
                 adresat = adresaci[i];
-                plikZAdresatami.operacjeNaPlikachPodczasEdytowaniaAdresata(adresat);
+                plikZAdresatami.uporzadkujPlikiPodczasEdytowaniaAdresata(adresat);
                 break;
             case '4':
                 cout << "Podaj nowy email: ";
                 adresaci[i].ustawEmail(MetodyPomocnicze::wczytajLinie());
                 adresat = adresaci[i];
-                plikZAdresatami.operacjeNaPlikachPodczasEdytowaniaAdresata(adresat);
+                plikZAdresatami.uporzadkujPlikiPodczasEdytowaniaAdresata(adresat);
                 break;
             case '5':
                 cout << "Podaj nowy adres zamieszkania: ";
                 adresaci[i].ustawAdres(MetodyPomocnicze::wczytajLinie());
                 adresat = adresaci[i];
-                plikZAdresatami.operacjeNaPlikachPodczasEdytowaniaAdresata(adresat);
+                plikZAdresatami.uporzadkujPlikiPodczasEdytowaniaAdresata(adresat);
                 break;
             case '6':
                 cout << endl << "Powrot do menu uzytkownika" << endl << endl;
@@ -194,7 +194,7 @@ void AdresatMenedzer::usunAdresata()
                     adresaci.erase(itr);
                     system("cls");
                     cout << "Usunieto adresata. Nastapi przekierowanie do menu glownego." << endl;
-                    plikZAdresatami.operacjeNaPlikachPodczasUsuwaniaAdresata(identyfikator);
+                    plikZAdresatami.uporzadkujPlikiPodczasUsuwaniaAdresata(identyfikator);
                     Sleep(2000); identyfikator = 0;
                     if (itr == adresaci.end())
                     {

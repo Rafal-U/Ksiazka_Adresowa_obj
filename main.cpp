@@ -14,10 +14,10 @@ int main()
         switch(wyborGlowny)
         {
         case '1':
-            ksiazkaAdresowa.rejestracjaUzytkownika();
+            ksiazkaAdresowa.zarejestrujUzytkownika();
             break;
         case '2':
-            ksiazkaAdresowa.logowanieUzytkownika();
+            ksiazkaAdresowa.zalogujUzytkownika();
             ksiazkaAdresowa.zarzadzajAdresatami();
             break;
         case '3':

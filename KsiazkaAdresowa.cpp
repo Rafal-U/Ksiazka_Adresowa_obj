@@ -1,14 +1,14 @@
 #include "KsiazkaAdresowa.h"
 
-void KsiazkaAdresowa::rejestracjaUzytkownika()
+void KsiazkaAdresowa::zarejestrujUzytkownika()
 {
-    uzytkownikMenedzer.rejestracjaUzytkownika();
+    uzytkownikMenedzer.zarejestrujUzytkownika();
 }
 
 
-void KsiazkaAdresowa::logowanieUzytkownika()
+void KsiazkaAdresowa::zalogujUzytkownika()
 {
-    uzytkownikMenedzer.logowanieUzytkownika();
+    uzytkownikMenedzer.zalogujUzytkownika();
     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
     {
        adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
@@ -65,7 +65,7 @@ void KsiazkaAdresowa::zarzadzajAdresatami()
             case '6':
                 adresatMenedzer ->edytujAdresata(); break;
             case '7':
-                uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika(); break;
+                uzytkownikMenedzer.zmienHasloZalogowanegoUzytkownika(); break;
             case '8':
                 uzytkownikMenedzer.wylogujUzytkownika();
                 delete adresatMenedzer; adresatMenedzer = NULL; break;

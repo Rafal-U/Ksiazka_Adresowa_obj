@@ -30,8 +30,8 @@ public:
     int pobierzIdOstatniegoAdresata();
     bool dopiszAdresataDoPliku(Adresat adresat);
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-    void operacjeNaPlikachPodczasEdytowaniaAdresata(Adresat edytowanyAdresat);
-    void operacjeNaPlikachPodczasUsuwaniaAdresata(int idAdresataUsunietego);
+    void uporzadkujPlikiPodczasEdytowaniaAdresata(Adresat edytowanyAdresat);
+    void uporzadkujPlikiPodczasUsuwaniaAdresata(int idAdresataUsunietego);
     int pobierzZPlikuIdOstatniegoAdresata();
 };
 

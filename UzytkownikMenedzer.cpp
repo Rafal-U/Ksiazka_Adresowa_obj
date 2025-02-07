@@ -31,7 +31,7 @@ bool UzytkownikMenedzer::czyIstniejeLogin(string login)
     return false;
 }
 
-void UzytkownikMenedzer::rejestracjaUzytkownika()
+void UzytkownikMenedzer::zarejestrujUzytkownika()
 {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
 
@@ -64,7 +64,7 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
 }
 
 
-void UzytkownikMenedzer::logowanieUzytkownika()
+void UzytkownikMenedzer::zalogujUzytkownika()
 {
     Uzytkownik uzytkownik;
     string login = "", haslo = "";
@@ -109,7 +109,7 @@ bool UzytkownikMenedzer::czyUzytkownikJestZalogowany()
 }
 
 
-void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
+void UzytkownikMenedzer::zmienHasloZalogowanegoUzytkownika()
 {
     string noweHaslo = "";
     int aktualneID = pobierzIdZalogowanegoUzytkownika();

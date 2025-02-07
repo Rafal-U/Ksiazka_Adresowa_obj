@@ -1,6 +1,6 @@
 #include "MetodyPomocnicze.h"
 
-string MetodyPomocnicze::konwerjsaIntNaString(int liczba)
+string MetodyPomocnicze::konwertujIntNaString(int liczba)
 {
     ostringstream ss;
     ss << liczba;
@@ -62,7 +62,7 @@ string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst
 }
 
 
-int MetodyPomocnicze::konwersjaStringNaInt(string liczba)
+int MetodyPomocnicze::konwertujStringNaInt(string liczba)
 {
     int liczbaInt;
     istringstream iss(liczba);

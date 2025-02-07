@@ -29,9 +29,9 @@ public:
     int pobierzIdZalogowanegoUzytkownika();
     void ustawIdZalogowanegoUzytkownika(int noweID);
 
-    void rejestracjaUzytkownika();
-    void logowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika();
+    void zarejestrujUzytkownika();
+    void zalogujUzytkownika();
+    void zmienHasloZalogowanegoUzytkownika();
     bool czyUzytkownikJestZalogowany();
     void wylogujUzytkownika();
     char wybierzOpcjeZMenuUzytkownika();

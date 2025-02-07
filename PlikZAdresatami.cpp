@@ -69,8 +69,8 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
 {
     string liniaZDanymiAdresata = "";
 
-    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzIDAdresata()) + '|';
-    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzIDUzytkownika()) + '|';
+    liniaZDanymiAdresata += MetodyPomocnicze::konwertujIntNaString(adresat.pobierzIDAdresata()) + '|';
+    liniaZDanymiAdresata += MetodyPomocnicze::konwertujIntNaString(adresat.pobierzIDUzytkownika()) + '|';
     liniaZDanymiAdresata += adresat.pobierzImie() + '|';
     liniaZDanymiAdresata += adresat.pobierzNazwisko() + '|';
     liniaZDanymiAdresata += adresat.pobierzNumerTelefonu() + '|';
@@ -84,7 +84,7 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
 int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
 {
     int pozycjaRozpoczeciaIdAdresata = 0;
-    int idAdresata = MetodyPomocnicze::konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
+    int idAdresata = MetodyPomocnicze::konwertujStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
     return idAdresata;
 }
 
@@ -102,7 +102,7 @@ string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku)
 int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
 {
     int pozycjaRozpoczeciaIdUzytkownika = daneJednegoAdresataOddzielonePionowymiKreskami.find_first_of('|') + 1;
-    int idUzytkownika = MetodyPomocnicze::konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
+    int idUzytkownika = MetodyPomocnicze::konwertujStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
 
     return idUzytkownika;
 }
@@ -154,7 +154,7 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
 }
 
 
-void PlikZAdresatami::operacjeNaPlikachPodczasEdytowaniaAdresata(Adresat edytowanyAdresat)
+void PlikZAdresatami::uporzadkujPlikiPodczasEdytowaniaAdresata(Adresat edytowanyAdresat)
 {
     fstream plik, plikTymczasowy;
     int numerLinii = 1, dlugoscLinii = 0, idAdresataZmienionego = 0;
@@ -207,7 +207,7 @@ void PlikZAdresatami::uaktualnijPlikiZAdresatami()
     rename("Adresaci_Tymczasowi.txt", "Adresaci.txt");
 }
 
-void PlikZAdresatami::operacjeNaPlikachPodczasUsuwaniaAdresata(int idAdresataUsunietego)
+void PlikZAdresatami::uporzadkujPlikiPodczasUsuwaniaAdresata(int idAdresataUsunietego)
 {
     fstream plik, plikTymczasowy;
     int numerLinii = 1, dlugoscLinii = 0;

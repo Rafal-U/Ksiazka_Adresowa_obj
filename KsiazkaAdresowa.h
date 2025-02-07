@@ -24,8 +24,8 @@ public:
          adresatMenedzer = NULL;
      };
 
-    void rejestracjaUzytkownika();
-    void logowanieUzytkownika();
+    void zarejestrujUzytkownika();
+    void zalogujUzytkownika();
     char wybierzOpcjeZMenuGlownego();
     void zamknijProgram();
     void zarzadzajAdresatami();
